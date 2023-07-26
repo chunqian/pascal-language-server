@@ -170,10 +170,10 @@ var
   Buffer: Array[1..100*1024] of byte;
 
 begin
-  Close(Output);
-  Assign(Output,GetTempDir(false)+'paslssock-out.log');
-  SetTextBuf(Output,Buffer,SizeOf(Buffer));
-  Rewrite(output);
+  // Close(Output);
+  // Assign(Output,GetTempDir(false)+'paslssock-out.log');
+  // SetTextBuf(Output,Buffer,SizeOf(Buffer));
+  // Rewrite(output);
   Application:=TPasLSPSocketServerApp.Create(nil);
   Application.Title:='Pascal LSP socket server application';
   Application.Run;
