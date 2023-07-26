@@ -34,7 +34,7 @@ The implementation is still incomplete.
   Position as options.
 * **pasls.formatCode** Format current file. Takes documentUri and Config file URI as options. 
   The configuration file is the Jedi Code Formatter configuration file. You
-  can find an example in the Lazarus settings directory **~/.lazarus/jcfsettings.cfg**.
+  can find an example in the Lazarus settings directory **`~/.lazarus/jcfsettings.cfg`**.
   An extra example is included in this repository in **Sample-Formatting.cfg**
 
 ### Initialization Options
@@ -43,7 +43,7 @@ Editors can supply [initialization options](https://microsoft.github.io/language
 
 The follow options are supported:
 
-```json
+```js
 "initializationOptions":
 {
   "fpcOptions":
@@ -78,7 +78,7 @@ The following macro formats are valid:
 
 Boolean values used in *initializationOptions*.
 
-```json
+```js
 // procedure completions with parameters are inserted as snippets
 insertCompletionsAsSnippets
 // procedure completions with parameters (non-snippet) insert
@@ -120,7 +120,7 @@ To use the server from `lsp-mode` in Emacs, install the separate
 
 Example settings JSON for the [LSP](https://github.com/sublimelsp/LSP) package on macOS.
 
-```json
+```js
 "pascal-language-server":
 {
   "command":
@@ -173,11 +173,14 @@ To build using Lazarus, you need to follow the following steps:
 
 * open the `lspprotocol.lpk` package in Lazarus. It is located in the
   [src/protocol](src/protocol) directory.
+
   You can compile this package in the IDE, but this is not needed: The
-Lazarus IDE and Lazbuild simply need to know where itis.
+  Lazarus IDE and Lazbuild simply need to know where it is.
 
 * open the `src/standard/pasls.lpi` project file in Lazarus, and compile the
   program. or use the lazbuid commandline:
+
+use lazarus
 
 ```sh
 lazbuild src/standard/pasls.lpi
@@ -185,6 +188,13 @@ lazbuild src/standard/pasls.lpi
 The `lspprotocol.lpk` package and `pasls.lpi` are both in the
 `pascallanguageserver.lpg`project group; if you have project group support enabled,
 then you can use this to compile this package and the executable.
+
+use fpcmake
+
+```sh
+fpcmake -w
+make
+```
 
 ## Debugging the LSP server
 

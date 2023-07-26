@@ -377,11 +377,15 @@ var
 
 begin
   havePas:=False;
+  DoLog('RootPath: ' + RootPath);
   If FindFirst(RootPath+AllFilesMask,faAnyFile,Info)=0 then
     try
       Repeat
-        if ((Info.Attr and faDirectory)<>0) and Not ((Info.Name='.') or (Info.Name='..')) then
-          FindPascalSourceDirectories(IncludeTrailingPathDelimiter(RootPath+Info.Name),Results);
+        if ((Info.Attr and faDirectory)<>0) then
+        begin
+          if ((RightStr(Info.Name, 4) = '.pkg') or ((Pos('.', Info.Name) <> 1) and (Pos('..', Info.Name) <> 1))) then
+            FindPascalSourceDirectories(IncludeTrailingPathDelimiter(RootPath+Info.Name),Results);
+        end;
         if IsPasExt(ExtractFileExt(Info.Name)) then
           HavePas:=True;
       until (FindNext(Info)<>0);
