@@ -29,7 +29,7 @@ uses
   { Code Tools }
   CodeToolManager, CodeCache, CTUnitGraph,
   { LazUtils }
-  LazFileUtils, Laz_AVL_Tree,
+  LazFileUtils, AVL_Tree,
   { Protocol }
   LSP.BaseTypes, LSP.Base, LSP.Basic, LSP.General, LSP.Messages, LSP.References;
 
