@@ -48,7 +48,7 @@ uses
   PasLS.Workspace,
   // Custom commands
   PasLS.ExecuteCommand,
-  PasLS.Command.FormatCode,
+  // PasLS.Command.FormatCode,
   PasLS.Command.CompleteCode,
   PasLS.Command.InvertAssignment,
   PasLS.Command.RemoveEmptyMethods;
